@@ -31,7 +31,7 @@
     }
 
     .task.reminder {
-        border-left: 5px solid green;
+        border-left: 5px solid limegreen;
     }
 
     .task h3 {

@@ -1,7 +1,10 @@
 <template>
   <div class="container">
-    <Header title="Task Tracker"/>
-    <AddTask />
+    <Header @toggle-add-task="toggleAddTask" title="Task Tracker" :showAddTask="showAddTask" />
+    <!--you can also use v-show instead of v-if-->
+    <div v-if="showAddTask">
+      <AddTask @add-task="addTask"/>
+    </div>
     <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks"/>
   </div>
 </template>
@@ -21,39 +24,70 @@ export default {
   data() {
     return {
       tasks: [],
+      showAddTask: false
     }
   },
   methods: {
-    deleteTask(id) {
+    toggleAddTask() {
+      this.showAddTask = !this.showAddTask
+    },
+    async addTask(task) {
+      const res = await fetch('api/tasks', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(task),
+      })
+
+      const data = await res.json()
+
+      this.tasks =[...this.tasks, data]
+    },
+    async deleteTask(id) {
       if(confirm('Are you sure?')) {
-        this.tasks = this.tasks.filter((task) => task.id !== id)
+        const res = await fetch(`api/tasks/${id}`, {
+          method: 'DELETE'
+        })
+
+        res.status === 200 ? (this.tasks = this.tasks.filter((task) => task.id !== id)) : alert('Error deleting task')
       }
     },
-    toggleReminder(id){
-      this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
+    async toggleReminder(id){
+      const taskToToggle = await this.fetchTask(id)
+      const updTask = {...taskToToggle, reminder: !taskToToggle.reminder}
+
+      const res = await fetch(`api/tasks/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'application/json'
+        }, 
+        body: JSON.stringify(updTask)
+      })
+
+      const data = await res.json()
+
+      this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: data.reminder} : task)
+    },
+    async fetchTasks() {
+      //Get data from json database that is hosted locally
+      const res = await fetch('api/tasks')
+
+      const data = await res.json()
+
+      return data
+    },
+    async fetchTask(id) {
+      //Get data from json database that is hosted locally
+      const res = await fetch(`api/tasks/${id}`)
+
+      const data = await res.json()
+
+      return data
     },
   },
-  created() {
-    this.tasks = [
-      {
-        id: 1,
-        text: 'Doctors Appt',
-        day: 'March 1st at 2:30 pm',
-        reminder: true,
-      },
-      {
-        id: 2,
-        text: 'Coding Sprint',
-        day: 'March 3rd at 1:10 pm',
-        reminder: true,
-      },
-      {
-        id: 3,
-        text: 'Pick up sister from school',
-        day: 'March 4th at 3:40 pm',
-        reminder: false,
-      }
-    ]
+  async created() {
+    this.tasks = await this.fetchTasks()
   }
 }
 </script>
