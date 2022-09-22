@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-    <Header @toggle-add-task="toggleAddTask" title="Task Tracker" :showAddTask="showAddTask" />
+    <Header v-if="showHeader" @toggle-add-task="toggleAddTask" title="Task Tracker" :showAddTask="showAddTask"/>
     <!--you can also use v-show instead of v-if-->
     <router-view :showAddTask="showAddTask"></router-view>
-    <Footer />
+    <Footer @toggle-hide-header="toggleHideHeader" :showHeader="showHeader"/>
   </div>
 </template>
 
@@ -19,12 +19,16 @@ export default {
 },
   data() {
     return {
-      showAddTask: false
+      showAddTask: false,
+      showHeader: true
     }
   },
   methods: {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
+    },
+    toggleHideHeader() {
+      this.showHeader = false
     }
   },
 }
