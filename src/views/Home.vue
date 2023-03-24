@@ -2,7 +2,7 @@
     <div v-if="showAddTask">
       <AddTask @add-task="addTask"/>
     </div>
-    <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks"/>
+    <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" @complete-task="completeTask" :tasks="tasks"/>
 </template>
 
 <script>
@@ -24,6 +24,9 @@
             }
         },
         methods: {
+            async completeTask() {
+                //const taskToFinish = await this.fetchTask(id)
+            },
             async addTask(task) {
                 const res = await fetch('api/tasks', {
                     method: 'POST',

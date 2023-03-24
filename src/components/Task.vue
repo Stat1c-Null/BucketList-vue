@@ -1,8 +1,10 @@
 <template>
     <!--you can also do @dblclick instead of @click for two clicks-->
     <div @click="$emit('toggle-reminder', task.id)" :class="[task.reminder ? 'reminder' : '', 'task']">
-        <h3>{{task.text}}
-        <i @click="$emit('delete-task', task.id)" class="fas fa-times"></i>
+        <h3>
+        <i @click="$emit('complete-task')" class="fa fa-square"></i><!--Checked "fa fa-check-square"-->
+        {{task.text}}
+        <i @click="$emit('delete-task', task.id)" class="fa fa-times"></i>
         </h3>
         <p>{{ task.day }}</p>
     </div>

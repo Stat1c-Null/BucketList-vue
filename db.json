@@ -1,22 +1,16 @@
 {
   "tasks": [
     {
-      "text": "Coding",
+      "text": "Create children book and sell it on amazon",
       "day": "Monday",
       "reminder": false,
       "id": 2
     },
     {
-      "text": "Birthday",
-      "day": "Monday",
+      "text": "Start drop shipping",
+      "day": "Sunday",
       "reminder": false,
       "id": 3
-    },
-    {
-      "text": "ffdsf",
-      "day": "Monday",
-      "reminder": false,
-      "id": 4
     }
   ]
 }
