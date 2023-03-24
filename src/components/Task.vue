@@ -20,18 +20,19 @@
 
 <style scope>
     .fas {
-        color: red;
+        color: #3a0ca3;
     }
 
     .task {
-        background: #f4f4f4;
+        background: #ebebeb;
         margin: 5px;
         padding: 10px 20px;
         cursor: pointer;
+        border-radius: 15px;
     }
 
     .task.reminder {
-        border-left: 5px solid limegreen;
+        border-left: 5px solid #4361ee;
     }
 
     .task h3 {

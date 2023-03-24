@@ -2,8 +2,8 @@
   <div class="container">
     <Header v-if="showHeader" @toggle-add-task="toggleAddTask" title="Task Tracker" :showAddTask="showAddTask"/>
     <!--you can also use v-show instead of v-if-->
-    <router-view :showAddTask="showAddTask"></router-view>
-    <Footer @toggle-hide-header="toggleHideHeader" :showHeader="showHeader"/>
+    <router-view :showAddTask="showAddTask"></router-view><!--List of all tasks-->
+    <Footer :showHeader="showHeader"/>
   </div>
 </template>
 
@@ -26,31 +26,28 @@ export default {
   methods: {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
-    },
-    toggleHideHeader() {
-      this.showHeader = false
     }
   },
 }
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Kanit:wght@300;400&display=swap');
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
   body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Kanit', sans-serif;
   }
   .container {
-    max-width: 500px;
-    margin: 30px auto;
+    max-width: 800px;
+    margin: 70px auto;
     overflow: auto;
     min-height: 300px;
-    border: 1px solid steelblue;
-    padding: 30px;
+    border: 3px solid #7209b7;
+    padding: 80px;
     border-radius: 5px;
   }
   .btn {

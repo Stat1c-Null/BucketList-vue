@@ -1,16 +1,22 @@
 {
   "tasks": [
     {
-      "text": "Christmas Gifts",
-      "day": "Monday",
-      "reminder": true,
-      "id": 1
-    },
-    {
       "text": "Coding",
       "day": "Monday",
-      "reminder": true,
+      "reminder": false,
       "id": 2
+    },
+    {
+      "text": "Birthday",
+      "day": "Monday",
+      "reminder": false,
+      "id": 3
+    },
+    {
+      "text": "ffdsf",
+      "day": "Monday",
+      "reminder": false,
+      "id": 4
     }
   ]
 }

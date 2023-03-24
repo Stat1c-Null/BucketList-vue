@@ -34,6 +34,9 @@
                 if(!this.text) {
                     alert('Please add a task')
                     return
+                } else if (!this.day) {
+                    alert('Please specify time and date')
+                    return
                 }
 
                 const newTask = {
@@ -64,6 +67,7 @@
 
     .form-control label {
         display: block;
+        color: #4361ee;
     }
 
     .form-control input {
@@ -85,11 +89,12 @@
     }
 
     .form-control-check input {
-        flex: 2;
+        flex: 4;
         height: 20px;
     }
 
     .btn{
         margin-bottom: 30px;
+        background-color: #3a0ca3;
     }
 </style>
