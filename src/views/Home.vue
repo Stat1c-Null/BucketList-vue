@@ -24,8 +24,21 @@
             }
         },
         methods: {
-            async completeTask() {
-                //const taskToFinish = await this.fetchTask(id)
+            async completeTask(id) {
+                const taskToToggle = await this.fetchTask(id)//Get the task you trying to complete
+                const updTask = {...taskToToggle, done: !taskToToggle.done}//Set completion variable to same one as before
+                //Fetch the task
+                const res = await fetch(`api/tasks/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                    'Content-type': 'application/json'
+                    }, 
+                    body: JSON.stringify(updTask)
+                })
+
+                const data = await res.json()
+
+                this.tasks = this.tasks.map((task) => task.id === id ? {...task, done: data.done} : task)//Set the result
             },
             async addTask(task) {
                 const res = await fetch('api/tasks', {

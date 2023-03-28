@@ -2,7 +2,7 @@
     <!--you can also do @dblclick instead of @click for two clicks-->
     <div @click="$emit('toggle-reminder', task.id)" :class="[task.reminder ? 'reminder' : '', 'task']">
         <h3>
-        <i @click="$emit('complete-task')" class="fa fa-square"></i><!--Checked "fa fa-check-square"-->
+        <i @click="$emit('complete-task', task.id)" :class="[task.done ? 'fa fa-check-square' : 'fa fa-square', 'task']"></i><!--If task is completed show checkmark, if not empty square-->
         {{task.text}}
         <i @click="$emit('delete-task', task.id)" class="fa fa-times"></i>
         </h3>

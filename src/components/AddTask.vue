@@ -24,7 +24,8 @@
             return {
                 text: '',
                 day: '',
-                reminder: false
+                reminder: false,
+                done: false
             }
         },
         methods: {
@@ -43,7 +44,8 @@
                     //id: Math.floor(Math.random() * 100000), //Generate id for json
                     text: this.text,
                     day: this.day,
-                    reminder: this.reminder
+                    reminder: this.reminder,
+                    done: false
                 }
 
                 this.$emit('add-task', newTask)

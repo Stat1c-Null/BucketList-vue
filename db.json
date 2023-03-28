@@ -1,16 +1,39 @@
 {
   "tasks": [
     {
-      "text": "Create children book and sell it on amazon",
-      "day": "Monday",
-      "reminder": false,
-      "id": 2
+      "text": "Start selling designs on Red Bubble",
+      "day": "Tuesday",
+      "reminder": true,
+      "done": false,
+      "id": 1
     },
     {
       "text": "Start drop shipping",
-      "day": "Sunday",
+      "day": "Wednesday",
+      "reminder": true,
+      "done": false,
+      "id": 2
+    },
+    {
+      "text": "Create children book and sell it on amazon",
+      "day": "Wednesday",
       "reminder": false,
+      "done": false,
       "id": 3
+    },
+    {
+      "text": "Find more students",
+      "day": "Wednesday",
+      "reminder": true,
+      "done": false,
+      "id": 4
+    },
+    {
+      "text": "Get gifts",
+      "day": "Monday",
+      "reminder": false,
+      "done": false,
+      "id": 5
     }
   ]
 }
