@@ -1,4 +1,5 @@
 <template>
+    <div v-if="!tasks.length"><h3 id="text">All tasks are complete!</h3></div>
     <div :key="task.id" v-for="task in tasks">
         <Task @toggle-reminder="$emit('toggle-reminder', task.id)" @delete-task="$emit('delete-task', task.id)" @complete-task="$emit('complete-task', task.id)" :task="task" />
     </div>
@@ -18,4 +19,13 @@
         emits: ['delete-task', 'toggle-reminder', 'complete-task'],
     }
 </script>
+
+<style scoped>
+    #text {
+        color: #f72585;
+        text-align: center;
+        margin: 7% 0;
+    }
+
+</style>
 
