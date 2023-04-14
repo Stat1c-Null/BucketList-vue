@@ -55,7 +55,7 @@ export default {
     background: #000;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 30px;
     margin: 5px;
     border-radius: 5px;
     cursor: pointer;
@@ -63,6 +63,13 @@ export default {
     font-size: 15px;
     font-family: inherit;
   }
+
+  .btn-add:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    box-shadow: 1px 1px 1px #464646;
+  }
+
   .btn:focus {
     outline: none;
   }
@@ -72,5 +79,11 @@ export default {
   .btn-block {
     display: block;
     width: 100%;
+  }
+
+  .btn-block:hover {
+    transform: scale(1.03);
+    transition: 0.5s;
+    box-shadow: 2px 2px 2px #464646;
   }
 </style>

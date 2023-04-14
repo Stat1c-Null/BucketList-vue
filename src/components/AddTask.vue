@@ -9,7 +9,7 @@
             <input type="text" v-model="day" name="day" placeholder="Add Day & Time" />
         </div>
         <div class="form-control form-control-check">
-            <label for="">Set Reminder</label>
+            <label for="">Reminder</label>
             <input type="checkbox" v-model="reminder" name="reminder" />
         </div>
 
@@ -92,7 +92,8 @@
 
     .form-control-check input {
         flex: 4;
-        height: 20px;
+        height: 25px;
+        margin-right: 60%;
     }
 
     .btn{
