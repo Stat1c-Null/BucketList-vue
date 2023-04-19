@@ -1,5 +1,8 @@
 # vue-start
 
+## Project Description
+Bucket list app where you can keep track of your long term dreams and goals that you plan to accomplish in the future.
+
 ## Project setup
 ```
 npm install

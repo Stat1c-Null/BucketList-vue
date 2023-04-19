@@ -1,25 +1,11 @@
 {
   "tasks": [
     {
-      "text": "Start drop shipping",
-      "day": "Monday",
-      "reminder": false,
-      "done": true,
-      "id": 1
-    },
-    {
-      "text": "Start selling designs on Red Bubble",
-      "day": "Sunday",
+      "text": "Visit Tokyo",
+      "day": "September 2026",
       "reminder": false,
       "done": false,
       "id": 2
-    },
-    {
-      "text": "Find More students ",
-      "day": "Sunday",
-      "reminder": true,
-      "done": false,
-      "id": 3
     }
   ]
 }

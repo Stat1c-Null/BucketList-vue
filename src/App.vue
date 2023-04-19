@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Header v-if="showHeader" @toggle-add-task="toggleAddTask" title="Task Tracker" :showAddTask="showAddTask"/>
+    <Header v-if="showHeader" @toggle-add-task="toggleAddTask" title="Bucket List" :showAddTask="showAddTask"/>
     <!--you can also use v-show instead of v-if-->
     <router-view :showAddTask="showAddTask"></router-view><!--List of all tasks-->
     <Footer :showHeader="showHeader"/>

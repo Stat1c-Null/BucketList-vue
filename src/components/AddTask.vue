@@ -1,19 +1,19 @@
 <template>
     <form @submit="onSubmit" action="add-form">
         <div class="form-control">
-            <label for="">Task</label>
-            <input type="text" v-model="text" name="text" placeholder="Add Task" />
+            <label for="">Goal</label>
+            <input type="text" v-model="text" name="text" placeholder="Add a Dream" />
         </div>
         <div class="form-control">
-            <label for="">Day & Time</label>
-            <input type="text" v-model="day" name="day" placeholder="Add Day & Time" />
+            <label for="">Month & Year</label>
+            <input type="text" v-model="day" name="day" placeholder="Add Date of Accomplishment" />
         </div>
         <div class="form-control form-control-check">
             <label for="">Reminder</label>
             <input type="checkbox" v-model="reminder" name="reminder" />
         </div>
 
-        <input type="submit" value="Save Task" class="btn btn-block" />
+        <input type="submit" value="Save Goal" class="btn btn-block" />
     </form>
 </template>
 
@@ -34,9 +34,6 @@
 
                 if(!this.text) {
                     alert('Please add a task')
-                    return
-                } else if (!this.day) {
-                    alert('Please specify time and date')
                     return
                 }
 
