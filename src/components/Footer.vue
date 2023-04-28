@@ -2,7 +2,7 @@
     <footer>
         <p>Copyright Tsunami Surfers &copy; 2023</p>
         <!--Stop showing title when clicked on About page-->
-        <router-link to="/about">About</router-link>
+        <router-link @click="$emit('toggle-add-button-off')" to="/about">About</router-link>
     </footer>
 </template>
 

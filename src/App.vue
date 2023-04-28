@@ -3,7 +3,7 @@
     <Header v-if="showHeader" @toggle-add-task="toggleAddTask" title="Bucket List" :showAddTask="showAddTask"/>
     <!--you can also use v-show instead of v-if-->
     <router-view :showAddTask="showAddTask"></router-view><!--List of all tasks-->
-    <Footer :showHeader="showHeader"/>
+    <Footer @toggle-add-button-off="toggleAddButtonOff"/>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
   components: {
     Header,
     Footer
-},
+  },
   data() {
     return {
       showAddTask: false,
@@ -26,7 +26,16 @@ export default {
   methods: {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
-    }
+    },
+    toggleAddButtonOff() {
+      this.showHeader = false
+    },
+    toggleAddButtonOn() {
+      this.showHeader = true
+      setTimeout(() => {//Wait until we move to main page and reload it so header will show up
+        location.reload();
+      }, 1)
+    },
   },
 }
 </script>

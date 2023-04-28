@@ -3,12 +3,12 @@
 <template>
     <atropos class="my-atropos">
         <!--you can also do @dblclick instead of @click for two clicks-->
-        <div @dblclick="$emit('toggle-reminder', task.id)" :class="[task.reminder ? 'reminder' : '', 'task']" :id="task.done ? 'taskComplete' : ''" ref="target">
+        <div @dblclick="$emit('toggle-reminder', task.id)" :class="[task.reminder ? 'reminder' : '', 'task']" :id="task.done ? 'task-complete' : ''" ref="target">
             <h3>
-            <i @click="$emit('complete-task', task.id)" :class="[task.done ? 'fa fa-check-square' : 'fa fa-square', 'task']" :id="task.done ? 'taskComplete' : ''"></i><!--If task is completed show checkmark, if not empty square-->
+            <i @click="$emit('complete-task', task.id)" :class="[task.done ? 'fa fa-check-square' : 'fa fa-square', 'task', 'task-icon']" :id="task.done ? 'task-complete' : ''"></i><!--If task is completed show checkmark, if not empty square-->
             <p v-if="task.done == false">{{task.text}}</p>
             <p v-else><span class="taskDone">{{task.text}}</span></p>
-            <i @click="$emit('delete-task', task.id)" class="fa fa-times"></i>
+            <i @click="$emit('delete-task', task.id)" class="fa fa-times delete-task"></i>
             </h3>
             <p>{{ task.day }}</p>
         </div>
@@ -31,12 +31,16 @@
 </script>
 
 <style scope>
-    .my-atropos {
-        
+    .task-icon:hover {
+        color: #4cc9f0;
     }
 
-    #taskComplete {
-        background-color: rgba(144, 65, 247, 0.5);
+    .delete-task:hover {
+        color: #f72585;
+    }
+
+    #task-complete {
+        background-color: rgb(153, 79, 250);
     }
 
     .taskDone {
