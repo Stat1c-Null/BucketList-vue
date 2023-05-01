@@ -6,7 +6,7 @@
         </div>
         <div class="form-control">
             <label for="">Month & Year</label>
-            <input type="text" v-model="day" name="day" placeholder="Add Date of Accomplishment" />
+            <VueDatePicker v-model="day" class="date" month-picker/>
         </div>
         <div class="form-control form-control-check">
             <label for="">Reminder</label>
@@ -18,14 +18,20 @@
 </template>
 
 <script>
+    import VueDatePicker from '@vuepic/vue-datepicker';
+    import '@vuepic/vue-datepicker/dist/main.css';
+
     export default {
-        name: 'AddTask',  
+        name: 'AddTask',
+        components: {
+            VueDatePicker
+        },
         data() {
             return {
                 text: '',
-                day: '',
+                day: null,
                 reminder: false,
-                done: false,
+                done: false
             }
         },
         methods: {
@@ -56,6 +62,11 @@
 </script>
 
 <style scoped>
+    .date {
+        margin-left: 1%;
+        border: 1px solid rgb(94, 94, 94);
+    }
+
     .add-form {
         margin-bottom: 40px;
     }
