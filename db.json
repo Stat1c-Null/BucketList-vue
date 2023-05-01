@@ -20,6 +20,13 @@
       "reminder": false,
       "done": false,
       "id": 4
+    },
+    {
+      "text": "Swim in a dead sea",
+      "day": "June 2026",
+      "reminder": false,
+      "done": false,
+      "id": 5
     }
   ]
 }
