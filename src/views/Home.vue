@@ -1,7 +1,9 @@
 <template>
-    <div v-if="showAddTask">
-      <AddTask @add-task="addTask"/>
-    </div>
+    <Transition>
+        <div v-if="showAddTask">
+            <AddTask @add-task="addTask"/>
+        </div>
+    </Transition>
     <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" @complete-task="completeTask" :tasks="tasks"/>
 </template>
 
@@ -100,3 +102,13 @@
         },
     }
 </script>
+
+<style scoped>
+    .v-enter-active, .v-leave-active {
+        transition: opacity 0.5s ease;
+    }
+
+    .v-enter-from, .v-leave-to {
+        opacity: 0;
+    }
+</style>

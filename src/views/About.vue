@@ -1,9 +1,9 @@
 <template>
     <h2 id="title">Bucket List</h2>
     <h4 id="desc">Welcome to the app where you can keep track of your long term dreams and goals that you plan to accomplish in the future.</h4>
-    <h4 id="goals">Total Bucket List Goals Completed: <span id="num">0</span></h4>
+    <!--<h4 id="goals">Total Bucket List Goals Completed: <span id="num">0</span></h4>-->
     <div id="info">
-        <h3>Version 1.0.9</h3>
+        <h3>Version 1.1.2</h3>
         <router-link @click="turnAddButtonOn" to="/">Go Back</router-link>
     </div>
 </template>

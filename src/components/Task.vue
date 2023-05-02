@@ -10,7 +10,7 @@
             <p v-else><span class="taskDone">{{task.text}}</span></p>
             <i @click="$emit('delete-task', task.id)" class="fa fa-times delete-task"></i>
             </h3>
-            <p>{{ task.day }}</p>
+            <p>{{task.day.month}} {{ task.day.year }}</p>
         </div>
     </atropos>
 </template>
