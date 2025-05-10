@@ -5,11 +5,13 @@
         </div>
     </Transition>
     <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" @complete-task="completeTask" :tasks="tasks"/>
+    <button @click="sendEmail">Test</button>
 </template>
 
 <script>
     import Tasks from '../components/Tasks'
     import AddTask from '../components/AddTask'
+    import emailjs from '@emailjs/browser'
 
     export default {
         name: 'Home-main',
@@ -26,6 +28,20 @@
             }
         },
         methods: {
+            sendEmail() {
+                emailjs
+                    .sendForm('service', 'template', this.$refs.form, {
+                    publicKey: '',
+                    })
+                    .then(
+                    () => {
+                        console.log('SUCCESS!');
+                    },
+                    (error) => {
+                        console.log('FAILED...', error.text);
+                    },
+                    );
+                },
             async completeTask(id) {
                 const taskToToggle = await this.fetchTask(id)//Get the task you trying to complete
                 const updTask = {...taskToToggle, done: !taskToToggle.done}//Set completion variable to same one as before
