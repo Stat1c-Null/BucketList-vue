@@ -4,7 +4,7 @@
             <AddTask @add-task="addTask"/>
         </div>
     </Transition>
-    <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" @complete-task="completeTask" :tasks="tasks"/>
+    <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" @complete-task="completeTask" @send-reminder="sendReminder" :tasks="tasks"/>
 </template>
 
 <script>
@@ -41,6 +41,22 @@
                 const data = await res.json()
 
                 this.tasks = this.tasks.map((task) => task.id === id ? {...task, done: data.done} : task)//Set the result
+            },
+            async sendReminder(id) {
+                const taskToToggle = await this.fetchTask(id)//Get the task
+                const updTask = {...taskToToggle, reminderSent: !taskToToggle.reminderSent}
+                //Fetch the task
+                const res = await fetch(`api/tasks/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                    'Content-type': 'application/json'
+                    }, 
+                    body: JSON.stringify(updTask)
+                })
+
+                const data = await res.json()
+
+                this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminderSent: data.reminderSent} : task)//Set the result
             },
             async addTask(task) {
                 const res = await fetch('api/tasks', {

@@ -1,54 +1,26 @@
 {
   "tasks": [
     {
-      "text": "Visit Tokyo",
-      "day": {
-        "month": "May",
-        "year": 2025
-      },
-      "reminder": false,
-      "done": false,
-      "id": 1
-    },
-    {
-      "text": "Jump with parachute ",
+      "text": "Get job at Valve",
       "day": {
         "month": "April",
-        "year": 2026
+        "year": 2025
       },
-      "reminder": false,
+      "reminder": true,
       "done": false,
-      "id": 2
+      "reminderSent": true,
+      "id": 1
     },
     {
       "text": "Buy mustang",
       "day": {
-        "month": "March",
-        "year": 2025
-      },
-      "reminder": false,
-      "done": false,
-      "id": 3
-    },
-    {
-      "text": "Get job at Valve",
-      "day": {
-        "month": "August",
-        "year": 2027
+        "month": "May",
+        "year": 2026
       },
       "reminder": true,
       "done": false,
-      "id": 4
-    },
-    {
-      "text": "test",
-      "day": {
-        "month": "April",
-        "year": 2025
-      },
-      "reminder": true,
-      "done": false,
-      "id": 5
+      "reminderSent": false,
+      "id": 2
     }
   ]
 }

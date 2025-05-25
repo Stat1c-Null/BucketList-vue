@@ -31,7 +31,8 @@
                 text: '',
                 day: null,
                 reminder: false,
-                done: false
+                done: false,
+                reminderSent: false,
             }
         },
         methods: {
@@ -59,7 +60,8 @@
                     text: this.text,
                     day: this.day,
                     reminder: this.reminder,
-                    done: false
+                    done: false,
+                    reminderSent: false,
                 }
 
                 this.$emit('add-task', newTask)

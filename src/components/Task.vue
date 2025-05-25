@@ -45,9 +45,11 @@
             const month = this.today_date.getMonth();
             const year = this.today_date.getFullYear();
             console.log(this.task.month);
-            if(this.months[month] == this.task.day.month && year == this.task.day.year && this.task.reminder == true) {
+            if(this.months[month] == this.task.day.month && year == this.task.day.year && this.task.reminder == true && this.task.reminderSent == false) {
                 console.log("sent an email")
-                //this.$refs.form.submit();
+                this.$emit('send-reminder', this.task.id)
+                const form = this.$refs.form;
+                form.dispatchEvent(new Event('submit'))
             }
         },
         methods: {
