@@ -50,7 +50,7 @@
                 }
 
                 //Convert number month into a word
-                const months = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
                 let num = this.day.month
                 this.day.month = months[num]

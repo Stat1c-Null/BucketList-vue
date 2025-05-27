@@ -6,7 +6,7 @@
         "month": "April",
         "year": 2025
       },
-      "reminder": true,
+      "reminder": false,
       "done": false,
       "reminderSent": true,
       "id": 1
@@ -17,10 +17,32 @@
         "month": "May",
         "year": 2026
       },
-      "reminder": true,
+      "reminder": false,
       "done": false,
       "reminderSent": false,
       "id": 2
+    },
+    {
+      "text": "Jump with Parachute",
+      "day": {
+        "month": "May",
+        "year": 2026
+      },
+      "reminder": false,
+      "done": false,
+      "reminderSent": false,
+      "id": 3
+    },
+    {
+      "text": "Go to Vietnam",
+      "day": {
+        "month": "January",
+        "year": 2023
+      },
+      "reminder": false,
+      "done": true,
+      "reminderSent": false,
+      "id": 4
     }
   ]
 }

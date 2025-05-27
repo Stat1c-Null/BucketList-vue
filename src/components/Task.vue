@@ -13,12 +13,11 @@
             <p>{{task.day.month}} {{ task.day.year }}</p>
         </div>
     </atropos>
-    <form ref="form" @submit.prevent="sendEmail">
+    <form ref="form" @submit.prevent="sendEmail" id="reminderForm">
         <input type="text" name="task_name" :value="`${task.text}`">
         <input type="text" name="due_date" :value="`${task.day.month} ${task.day.year}`">
         <input type="submit" value="Send">
     </form>
-    <p>{{ today_date.getMonth() }}</p>
 </template>
 
 <script>
@@ -37,22 +36,31 @@
         data() {
             return {
                 today_date: new Date(),
-                months: ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                intervalID: null,
             }
         },
         mounted() {
-            //Remind users of goals they need to achieve this month
-            const month = this.today_date.getMonth();
-            const year = this.today_date.getFullYear();
-            console.log(this.task.month);
-            if(this.months[month] == this.task.day.month && year == this.task.day.year && this.task.reminder == true && this.task.reminderSent == false) {
-                console.log("sent an email")
-                this.$emit('send-reminder', this.task.id)
-                const form = this.$refs.form;
-                form.dispatchEvent(new Event('submit'))
-            }
+            this.intervalID = setInterval(() => {
+                this.remindUser();
+            }, 30000);
         },
+        beforeUnmount() {
+            if(this.intervalID) {
+                clearInterval(this.intervalID);
+            }
+        },  
         methods: {
+            remindUser() {
+                //Remind users of goals they need to achieve this month
+                const month = this.today_date.getMonth();
+                const year = this.today_date.getFullYear();
+                if(this.months[month] == this.task.day.month && year == this.task.day.year && this.task.reminder == true && this.task.reminderSent == false) {
+                    this.$emit('send-reminder', this.task.id)
+                    const form = this.$refs.form
+                    form.dispatchEvent(new Event('submit'))
+                }
+            },  
             sendEmail() {
                 emailjs
                     .sendForm(process.env.VUE_APP_SERVICE_ID, process.env.VUE_APP_TEMPLATE_ID, this.$refs.form, {
@@ -72,6 +80,10 @@
 </script>
 
 <style scope>
+    #reminderForm {
+        display: none;
+    }
+
     .task-icon:hover {
         color: #4cc9f0;
     }
