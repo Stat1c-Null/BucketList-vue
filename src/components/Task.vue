@@ -43,7 +43,7 @@
         mounted() {
             this.intervalID = setInterval(() => {
                 this.remindUser();
-            }, 30000);
+            }, 3600000);
         },
         beforeUnmount() {
             if(this.intervalID) {
@@ -55,7 +55,7 @@
                 //Remind users of goals they need to achieve this month
                 const month = this.today_date.getMonth();
                 const year = this.today_date.getFullYear();
-                if(this.months[month] == this.task.day.month && year == this.task.day.year && this.task.reminder == true && this.task.reminderSent == false) {
+                if(this.months[month] == this.task.day.month && year == this.task.day.year && this.task.reminder && !this.task.reminderSent && !this.task.done) {
                     this.$emit('send-reminder', this.task.id)
                     const form = this.$refs.form
                     form.dispatchEvent(new Event('submit'))

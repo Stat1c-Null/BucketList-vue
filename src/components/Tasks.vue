@@ -16,7 +16,7 @@
         components: {
             Task,
         },
-        emits: ['delete-task', 'toggle-reminder', 'complete-task'],
+        emits: ['delete-task', 'toggle-reminder', 'complete-task', 'send-reminder'],
     }
 </script>
 
