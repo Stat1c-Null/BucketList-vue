@@ -1,4 +1,5 @@
 <template>
+  <router-link to="/signup"><button>Sign Up</button></router-link>
   <div class="container">
     <Header v-if="showHeader" @toggle-add-task="toggleAddTask" title="Bucket List" :showAddTask="showAddTask"/>
     <!--you can also use v-show instead of v-if-->

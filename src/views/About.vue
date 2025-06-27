@@ -4,6 +4,7 @@
     <!--<h4 id="goals">Total Bucket List Goals Completed: <span id="num">0</span></h4>-->
     <div id="info">
         <h3>Version 1.1.2</h3>
+        <h5>Email: {{email}}</h5>
         <router-link @click="turnAddButtonOn" to="/">Go Back</router-link>
     </div>
 </template>
@@ -13,11 +14,14 @@
 
     export default {
         name: 'About-main',
+        props: {
+            email: String,
+        },
         methods: {
             turnAddButtonOn() {
                 App.methods.toggleAddButtonOn();
             }
-        }
+        },
     }
 </script>
 
