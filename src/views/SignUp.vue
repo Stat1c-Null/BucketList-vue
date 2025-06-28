@@ -9,7 +9,7 @@
       </div>
       <div class="form-group">
         <label for="email">Password: </label>
-        <input type="password" id="userEmail" v-model="password" placeholder="Enter your password: " required>
+        <input type="password" id="password" v-model="password" placeholder="Enter your password: " required>
       </div>
       <button type="submit" id="submitButton">Sign Up</button>
     </form>
@@ -34,6 +34,7 @@
           if(this.password.length < 6) {
             throw new Error ("Password must be at least 6 characters long");
           }
+          console.log("sending post request")
           //Send data to the backend
           const response = await axios.post('/api/signup', {
             email: this.email,

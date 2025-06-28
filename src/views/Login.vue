@@ -2,16 +2,16 @@
   <div id="container">
     <h1>Bucket List</h1>
     <h2>Login</h2>
-    <form action="">
+    <form @submit.prevent="userLogin">
       <div class="form-group">
         <label for="email">Email: </label>
-        <input type="email" id="userEmail">
+        <input type="email" id="userEmail" v-model="email" placeholder="Enter your email: " required>
       </div>
       <div class="form-group">
         <label for="email">Password: </label>
-        <input type="password" id="userEmail">
+        <input type="password" id="userEmail" v-model="password" placeholder="Enter your password: " required>
       </div>
-      <button id="submitButton">Login</button>
+      <button type="submit" id="submitButton">Login</button>
     </form>
     
   </div>
@@ -20,6 +20,38 @@
 <script>
   export default {
     name: "LoginView",
+    data(){
+      return {
+        email: '',
+        password: ''
+      }
+    },
+    methods: {
+      async userLogin() {
+        try {
+
+          //Send data to the backend
+          const response = await axios.post('/api/login', {
+            email: this.email,
+            password: this.password
+          });
+
+          const result = await response.json();
+
+          console.log("Success")          
+
+          this.email = ''
+          this.password = ''
+
+          this.$router.push('/')
+
+          return result
+          
+        } catch(error) {
+          console.log("Error happend: " + error);
+        }
+      }
+    }
   }
 </script>
 
