@@ -43,6 +43,17 @@
       "done": true,
       "reminderSent": false,
       "id": 4
+    },
+    {
+      "text": "Finish School",
+      "day": {
+        "month": "May",
+        "year": 2026
+      },
+      "reminder": true,
+      "done": false,
+      "reminderSent": false,
+      "id": 5
     }
   ]
 }

@@ -30,13 +30,16 @@
     },
     methods: {
       async newUser() {
+        const api = axios.create({
+          baseURL: 'http://localhost:5000'
+        })
         try {
           if(this.password.length < 6) {
             throw new Error ("Password must be at least 6 characters long");
           }
           console.log("sending post request")
           //Send data to the backend
-          const response = await axios.post('/api/signup', {
+          const response = await api.post('/api/signup', {
             email: this.email,
             password: this.password
           });
@@ -45,6 +48,7 @@
 
           console.log("Success")          
 
+          this.email = ''
           this.email = ''
           this.password = ''
 

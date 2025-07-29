@@ -33,7 +33,7 @@ app.post('/api/signup', async (request, response) => {
 
     //Encrypt password
     const encryptedPassword = await bcrypt.hash(password, 10);
-
+    console.log("inserting data");
     db.run(
       `INSERT INTO Users (email, password) VALUES (?, ?)`, [email, encryptedPassword],
       function(error) {
@@ -86,7 +86,7 @@ app.get('/api/users', (request, response) => {
 })
 
 //Start server
-const PORT = 3000;
+const PORT = 5000;
 app.listen(PORT, () => {
   console.log("Server is running")
 })
